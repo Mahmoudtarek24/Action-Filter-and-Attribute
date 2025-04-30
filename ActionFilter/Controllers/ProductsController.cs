@@ -24,5 +24,19 @@ namespace ActionFilter.Controllers
 			// If we reach here, minPrice is valid
 			return Ok(new { Message = $"Products with price >= {minPrice}" });
 		}
+
+
+		[HttpGet("{id}")]
+		[DeviceType("desktop")]
+		public IActionResult GetProductForMobile(int id)
+		{
+			return Ok(new
+			{
+				ProductId = id,
+				Name = $"Product {id}",
+				Description = "Mobile-optimized product details",
+				IsMobile = true
+			});
+		}
 	}
 }
